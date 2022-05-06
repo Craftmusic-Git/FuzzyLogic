@@ -20,7 +20,7 @@ protected:
 };
 
 TEST_F(ValueModelTestSuite, SetGetTest){
-    int testedValue = 42;
+    int* testedValue = new int(42);
     sut->setValue(testedValue);
     EXPECT_EQ(sut->evaluate(),testedValue);
 }

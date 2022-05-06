@@ -4,7 +4,8 @@
 namespace fuzzyLogic::core {
     template<typename T>
     class Expression {
-        T evaluate();
+    public:
+        virtual T* evaluate() = 0;
     };
 }
 
