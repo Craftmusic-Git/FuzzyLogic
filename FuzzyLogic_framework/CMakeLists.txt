@@ -6,7 +6,7 @@ set(HEADER_FILES
         core/Expression.h
         core/UnaryExpression.h
         core/ValueModel.h
-        core/UnaryExpressionModel.h)
+        core/UnaryExpressionModel.h core/BinaryExpressionModel.h)
 
 set(SOURCE_FILES )
 

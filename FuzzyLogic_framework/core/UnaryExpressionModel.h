@@ -6,7 +6,7 @@
 
 namespace fuzzyLogic::core {
     template <typename T>
-    class UnaryExpressionModel : public Expression<T>, UnaryExpression<T>{
+    class UnaryExpressionModel : public Expression<T>, public UnaryExpression<T>{
     protected:
         UnaryExpression<T>* operatorUnaryExpression;
         Expression<T>* operand;

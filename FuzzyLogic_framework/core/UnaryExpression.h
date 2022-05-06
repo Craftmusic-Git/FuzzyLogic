@@ -9,7 +9,6 @@ namespace fuzzyLogic::core {
     public:
         virtual T* evaluate(Expression<T>* o) = 0;
     };
-
 }
 
 #endif //LOGIQUEFLOU_UNARYEXPRESSION_H

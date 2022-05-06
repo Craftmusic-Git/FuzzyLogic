@@ -31,7 +31,7 @@ TEST_F(UnaryExpressionModelTestSuite, evaluateWithoutOperator){
     ASSERT_EQ(sut->evaluate(value), nullptr);
 }
 
-TEST_F(UnaryExpressionModelTestSuite, getSetOperator){
+TEST_F(UnaryExpressionModelTestSuite, getSetOperand){
     sut->setOperand(value);
     ASSERT_EQ(sut->getOperand(),value);
 }
@@ -43,4 +43,11 @@ TEST_F(UnaryExpressionModelTestSuite, evaluateWithOperand){
     EXPECT_EQ(sut->getOperand()->evaluate(),value->evaluate());
     EXPECT_EQ(sut->evaluate(), nullptr);
     delete val;
+}
+
+TEST_F(UnaryExpressionModelTestSuite, getSetOperator){
+    auto* unaryExpression = new UnaryExpressionModel<int>();
+    sut->setOperator(unaryExpression);
+    EXPECT_EQ(sut->getOperator(),unaryExpression);
+    delete unaryExpression;
 }
