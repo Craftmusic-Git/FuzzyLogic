@@ -11,6 +11,7 @@ namespace fuzzyLogic::core::op {
     template<typename T>
     class AndMin : public And<T> {
     public:
+        AndMin() = default;
         T* evaluate(Expression<T>* l, Expression<T>* r) override;
     };
 
