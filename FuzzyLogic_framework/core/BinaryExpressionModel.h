@@ -33,12 +33,14 @@ namespace fuzzyLogic::core {
     T *BinaryExpressionModel<T>::evaluate() const {
         if(left != NULL && right != NULL)
             return operatorBinaryExpression->evaluate(left,right);
+        return nullptr;
     }
 
     template<typename T>
     T *BinaryExpressionModel<T>::evaluate(Expression<T> *l, Expression<T> *r) const {
         if(operatorBinaryExpression != NULL)
             return evaluate(l,r);
+        return nullptr;
     }
 
     template<typename T>
