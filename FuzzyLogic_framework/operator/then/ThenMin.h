@@ -7,6 +7,7 @@ namespace fuzzyLogic::core::op {
     template<typename T>
     class ThenMin : public Then<T>{
     public:
+        ThenMin() = default;
         virtual ~ThenMin() = default;
         T* evaluate(Expression<T>* l, Expression<T>* r) const override;
     };

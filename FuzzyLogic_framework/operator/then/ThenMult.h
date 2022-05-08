@@ -7,6 +7,7 @@ namespace fuzzyLogic::core::op {
     template <typename T>
     class ThenMult : public Then<T>{
     public:
+        ThenMult() = default;
         virtual ~ThenMult() = default;
         T* evaluate(Expression<T>* l, Expression<T>* r)const override;
     };
