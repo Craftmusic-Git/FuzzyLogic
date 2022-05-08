@@ -25,10 +25,10 @@ namespace fuzzyLogic::core {
         T* i = new T();
         for(*i = *min; *i <= *max; *i += *step){
             input->setValue(i);
-            x->push_back(*output->evaluate());
-            y->push_back(*i);
+            y->push_back(*output->evaluate());
+            x->push_back(*i);
         }
-        return new Shape(y,x);
+        return new Shape(x,y);
     }
 }
 

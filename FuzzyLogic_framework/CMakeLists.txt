@@ -17,9 +17,9 @@ set(HEADER_FILES
         operator/is/Is.h
         operator/is/IsTriangle.h
         operator/then/Then.h
-        operator/then/ThenMin.h operator/then/ThenMult.h operator/agg/Agg.h operator/agg/AggMax.h operator/agg/AggPlus.h core/Evaluator.h)
+        operator/then/ThenMin.h operator/then/ThenMult.h operator/agg/Agg.h operator/agg/AggMax.h operator/agg/AggPlus.h core/Evaluator.h operator/not/NotMinus1.h operator/not/Not.h)
 
-set(SOURCE_FILES )
+set(SOURCE_FILES operator/is/IsRectangle.h)
 
 add_library(FuzzyLogicFramework STATIC ${SOURCE_FILES} ${HEADER_FILES})
 set_target_properties(FuzzyLogicFramework PROPERTIES LINKER_LANGUAGE CXX)

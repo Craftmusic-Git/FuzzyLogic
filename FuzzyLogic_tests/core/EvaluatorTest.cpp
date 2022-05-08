@@ -3,6 +3,7 @@
 #include "core/Evaluator.h"
 #include "operator/is/IsTriangle.h"
 #include "operator/agg/AggPlus.h"
+#include "operator/is/IsRectangle.h"
 #include "core/BinaryExpressionModel.h"
 
 using namespace fuzzyLogic::core;
@@ -22,6 +23,11 @@ protected:
         val1 = new ValueModel<double>(0.45);
         val2 = new ValueModel<double>(0.55);
         aggPlus = new AggPlus<double>();
+        rectangle = new IsRectangle<double>(-1,1);
+        binExpr = new BinaryExpressionModel<double>();
+        binExpr->setOperator(aggPlus);
+        binExpr->setLeft(val1);
+        binExpr->setRight(val2);
     }
 
     void TearDown() override{
@@ -34,6 +40,7 @@ protected:
         delete aggPlus;
         delete val1;
         delete val2;
+        delete rectangle;
     }
     Evaluator<double>* sut;
     double* min, *max, *step;
@@ -42,6 +49,8 @@ protected:
     AggPlus<double>* aggPlus;
     ValueModel<double>* val1;
     ValueModel<double>* val2;
+    IsRectangle<double>* rectangle;
+    BinaryExpressionModel<double>* binExpr;
 };
 
 TEST_F(EvaluatorTestSuite, nullBuildShapeTest){
@@ -63,4 +72,8 @@ TEST_F(EvaluatorTestSuite, simpleEvaluatorTest){
     for(auto y : *shape->second){
             EXPECT_EQ(y, resultTest);
     }
+}
+
+TEST_F(EvaluatorTestSuite, complexeTestEvaluation){
+
 }

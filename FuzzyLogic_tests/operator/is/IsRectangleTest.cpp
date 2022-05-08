@@ -1,17 +1,17 @@
 #include "gtest/gtest.h"
 #include "core/ValueModel.h"
-#include "operator/is/IsTriangle.h"
+#include "operator/is/IsRectangle.h"
 
 using namespace fuzzyLogic::core;
 using namespace fuzzyLogic::core::op;
 
-class IsTriangleTestSuite : public ::testing::Test{
+class IsRectangleTestSuite : public ::testing::Test{
 protected:
     void SetUp() override{
-        sut = new IsTriangle<double>(0.25,0.5,0.75);
+        sut = new IsRectangle<double>(0.25,0.75);
         val1 = new ValueModel<double>(0.1);
         val2 = new ValueModel<double>(0.5);
-        val3 = new ValueModel<double>(0.625);
+        val3 = new ValueModel<double>(0.9);
     }
 
     void TearDown() override{
@@ -21,19 +21,19 @@ protected:
         delete val3;
     }
 
-    IsTriangle<double> *sut;
+    IsRectangle<double> *sut;
     ValueModel<double> *val1;
     ValueModel<double> *val2;
     ValueModel<double> *val3;
 
 };
 
-TEST_F(IsTriangleTestSuite, nullptrTest){
+TEST_F(IsRectangleTestSuite, nullptrTest){
     EXPECT_EQ(sut->evaluate(nullptr),nullptr);
 }
 
-TEST_F(IsTriangleTestSuite, SimpleValueTest){
-    EXPECT_DOUBLE_EQ(*sut->evaluate(val1),0);
-    EXPECT_DOUBLE_EQ(*sut->evaluate(val2),1);
-    EXPECT_DOUBLE_EQ(*sut->evaluate(val3),0.5);
+TEST_F(IsRectangleTestSuite, fonctionnalTest){
+    EXPECT_EQ(*sut->evaluate(val1),0);
+    EXPECT_EQ(*sut->evaluate(val2),1);
+    EXPECT_EQ(*sut->evaluate(val3),0);
 }
