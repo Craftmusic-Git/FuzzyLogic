@@ -11,12 +11,12 @@ namespace fuzzyLogic::core::op {
     template <typename T>
     class OrPlus : Or<T> {
     public:
-        T* evaluate(Expression<T>* l, Expression<T>* r) override;
+        T* evaluate(Expression<T>* l, Expression<T>* r) const override;
         OrPlus() = default;
     };
 
     template<typename T>
-    T *OrPlus<T>::evaluate(Expression<T> *l, Expression<T> *r) {
+    T *OrPlus<T>::evaluate(Expression<T> *l, Expression<T> *r) const {
         if(l != nullptr && r != nullptr)
             return new T(*l->evaluate() + *r->evaluate());
         return nullptr;

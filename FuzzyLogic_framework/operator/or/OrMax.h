@@ -8,11 +8,11 @@ namespace fuzzyLogic::core::op {
     class OrMax : public Or<T>{
     public:
         OrMax() = default;
-        T* evaluate(Expression<T>* l, Expression<T>* r) override;
+        T* evaluate(Expression<T>* l, Expression<T>* r) const override;
     };
 
     template<typename T>
-    T *OrMax<T>::evaluate(Expression<T> *l, Expression<T> *r) {
+    T *OrMax<T>::evaluate(Expression<T> *l, Expression<T> *r) const{
         if(l != nullptr && r != nullptr) {
             T *le = l->evaluate();
             T *re = r->evaluate();

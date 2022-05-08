@@ -7,7 +7,7 @@ namespace fuzzyLogic::core::op {
     template< typename T>
     class Is : public UnaryExpression<T>{
     public:
-        virtual T* evaluate(Expression<T>* expr) = 0;
+        virtual T* evaluate(Expression<T>* expr) const = 0;
     };
 }
 

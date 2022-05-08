@@ -6,7 +6,18 @@ set(HEADER_FILES
         core/Expression.h
         core/UnaryExpression.h
         core/ValueModel.h
-        core/UnaryExpressionModel.h core/BinaryExpressionModel.h operator/and/And.h operator/and/AndMin.h operator/and/AndMult.h operator/or/OrMax.h operator/or/Or.h operator/or/OrPlus.h operator/is/Is.h)
+        core/UnaryExpressionModel.h
+        core/BinaryExpressionModel.h
+        operator/and/And.h
+        operator/and/AndMin.h
+        operator/and/AndMult.h
+        operator/or/OrMax.h
+        operator/or/Or.h
+        operator/or/OrPlus.h
+        operator/is/Is.h
+        operator/is/IsTriangle.h
+        operator/then/Then.h
+        operator/then/ThenMin.h operator/then/ThenMult.h)
 
 set(SOURCE_FILES )
 

@@ -8,7 +8,7 @@ namespace fuzzyLogic::core::op {
     template<typename T>
     class Or : public BinaryExpression<T>{
     public:
-        T* evaluate(Expression<T>* l, Expression<T>* r) override = 0;
+        virtual T* evaluate(Expression<T>* l, Expression<T>* r) const = 0;
     };
 }
 

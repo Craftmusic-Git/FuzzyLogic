@@ -11,25 +11,25 @@ namespace fuzzyLogic::core {
         UnaryExpression<T>* operatorUnaryExpression;
         Expression<T>* operand;
     public:
-        T* evaluate() override;
-        T* evaluate(Expression<T>* o) override;
+        T* evaluate() const override;
+        T* evaluate(Expression<T>* o) const override;
 
         // SETTER/GETTER
         void setOperand(Expression<T>* o);
-        Expression<T>* getOperand();
+        Expression<T>* getOperand() const;
         void setOperator(UnaryExpression<T>* o);
-        UnaryExpression<T>* getOperator();
+        UnaryExpression<T>* getOperator() const;
     };
 
     template<typename T>
-    T* UnaryExpressionModel<T>::evaluate() {
+    T* UnaryExpressionModel<T>::evaluate() const{
         if(operand != NULL)
             return evaluate(operand);
         return NULL;
     }
 
     template<typename T>
-    T* UnaryExpressionModel<T>::evaluate(Expression<T>* o) {
+    T* UnaryExpressionModel<T>::evaluate(Expression<T>* o) const{
         if(operatorUnaryExpression != NULL)
             return operatorUnaryExpression->evaluate(operand);
         return NULL;
@@ -41,7 +41,7 @@ namespace fuzzyLogic::core {
     }
 
     template<typename T>
-    Expression<T> *UnaryExpressionModel<T>::getOperand() {
+    Expression<T> *UnaryExpressionModel<T>::getOperand() const{
         return operand;
     }
 
@@ -51,7 +51,7 @@ namespace fuzzyLogic::core {
     }
 
     template<typename T>
-    UnaryExpression<T> *UnaryExpressionModel<T>::getOperator() {
+    UnaryExpression<T> *UnaryExpressionModel<T>::getOperator() const{
         return operatorUnaryExpression;
     }
 }

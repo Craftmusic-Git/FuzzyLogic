@@ -8,11 +8,11 @@ namespace fuzzyLogic::core::op {
     class AndMult : public And<T>{
     public:
         AndMult() = default;
-        T* evaluate(Expression<T>* l, Expression<T>* r) override;
+        T* evaluate(Expression<T>* l, Expression<T>* r) const override;
     };
 
     template<typename T>
-    T *AndMult<T>::evaluate(Expression<T> *l, Expression<T> *r) {
+    T *AndMult<T>::evaluate(Expression<T> *l, Expression<T> *r) const{
         if(l != nullptr && r != nullptr)
             return new T(*(l->evaluate()) * *(r->evaluate()));
         return nullptr;

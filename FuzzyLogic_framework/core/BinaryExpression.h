@@ -7,7 +7,7 @@ namespace fuzzyLogic::core {
     template <typename T>
     class BinaryExpression {
     public:
-        virtual T* evaluate(Expression<T>* l, Expression<T>* r) = 0;
+        virtual T* evaluate(Expression<T>* l, Expression<T>* r) const = 0;
     };
 }
 

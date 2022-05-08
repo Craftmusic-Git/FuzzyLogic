@@ -24,3 +24,10 @@ TEST_F(ValueModelTestSuite, SetGetTest){
     sut->setValue(testedValue);
     EXPECT_EQ(sut->evaluate(),testedValue);
 }
+
+TEST_F(ValueModelTestSuite, ConstructorOverchargeTest){
+    double value = 12;
+    ValueModel<double> *valueTest = new ValueModel<double>(value);
+    EXPECT_DOUBLE_EQ(*valueTest->evaluate(),value);
+    delete valueTest;
+}

@@ -12,11 +12,11 @@ namespace fuzzyLogic::core::op {
     class AndMin : public And<T> {
     public:
         AndMin() = default;
-        T* evaluate(Expression<T>* l, Expression<T>* r) override;
+        T* evaluate(Expression<T>* l, Expression<T>* r) const override;
     };
 
     template<typename T>
-    T *AndMin<T>::evaluate(Expression<T>* l, Expression<T>* r) {
+    T *AndMin<T>::evaluate(Expression<T>* l, Expression<T>* r) const {
         if(l != nullptr && r != nullptr) {
             T *le = l->evaluate();
             T *re = r->evaluate();

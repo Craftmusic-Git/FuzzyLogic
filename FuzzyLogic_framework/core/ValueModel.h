@@ -14,18 +14,25 @@ namespace fuzzyLogic::core {
         T* value;
 
     public:
-        T* evaluate() override;
+        ValueModel() = default;
+        ValueModel(T value);
+        T* evaluate() const override;
         void setValue(T* v);
     };
 
     template<typename T>
-    T* ValueModel<T>::evaluate() {
+    T* ValueModel<T>::evaluate() const{
         return value;
     }
 
     template<typename T>
     void ValueModel<T>::setValue(T* v) {
         value = v;
+    }
+
+    template<typename T>
+    ValueModel<T>::ValueModel(T value) : value(new T(value)){
+
     }
 }
 
