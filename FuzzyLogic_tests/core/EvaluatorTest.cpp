@@ -5,6 +5,7 @@
 #include "operator/agg/AggPlus.h"
 #include "operator/is/IsRectangle.h"
 #include "core/BinaryExpressionModel.h"
+#include "core/UnaryExpressionModel.h"
 
 using namespace fuzzyLogic::core;
 using namespace fuzzyLogic::core::op;
@@ -15,8 +16,8 @@ protected:
 
     void SetUp() override{
         sut = new Evaluator<double>();
-        min = new double(-5);
-        max = new double(5);
+        min = new double(0);
+        max = new double(10);
         step = new double(0.05);
         simpleValue = new ValueModel<double>();
         triangle = new IsTriangle<double>(-1,0,1);
@@ -25,9 +26,7 @@ protected:
         aggPlus = new AggPlus<double>();
         rectangle = new IsRectangle<double>(-1,1);
         binExpr = new BinaryExpressionModel<double>();
-        binExpr->setOperator(aggPlus);
-        binExpr->setLeft(val1);
-        binExpr->setRight(val2);
+        unaryExpr = new UnaryExpressionModel<double>();
     }
 
     void TearDown() override{
@@ -41,6 +40,7 @@ protected:
         delete val1;
         delete val2;
         delete rectangle;
+        delete unaryExpr;
     }
     Evaluator<double>* sut;
     double* min, *max, *step;
@@ -51,6 +51,7 @@ protected:
     ValueModel<double>* val2;
     IsRectangle<double>* rectangle;
     BinaryExpressionModel<double>* binExpr;
+    UnaryExpressionModel<double>* unaryExpr;
 };
 
 TEST_F(EvaluatorTestSuite, nullBuildShapeTest){
@@ -58,7 +59,6 @@ TEST_F(EvaluatorTestSuite, nullBuildShapeTest){
 }
 
 TEST_F(EvaluatorTestSuite, simpleEvaluatorTest){
-    BinaryExpressionModel<double>* binExpr = new BinaryExpressionModel<double>();
     binExpr->setOperator(aggPlus);
     binExpr->setLeft(val1);
     binExpr->setRight(val2);
@@ -75,5 +75,12 @@ TEST_F(EvaluatorTestSuite, simpleEvaluatorTest){
 }
 
 TEST_F(EvaluatorTestSuite, complexeTestEvaluation){
-
+    unaryExpr->setOperator(rectangle);
+    unaryExpr->setOperand(simpleValue);
+    Shape* shape = sut->buildShape(min,max,step,simpleValue, unaryExpr);
+    double xTest = *min;
+    for(auto x : *shape->first){
+        EXPECT_EQ(x,xTest);
+        xTest += *step;
+    }
 }

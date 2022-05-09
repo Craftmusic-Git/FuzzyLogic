@@ -18,13 +18,14 @@ namespace fuzzyLogic::core {
 
     template<typename T>
     typename Evaluator<T>::Shape* Evaluator<T>::buildShape(const T* min, const T* max, const T* step, ValueModel<T>* input, Expression<T>* output) {
-        if(min == nullptr || max == nullptr || step == nullptr || input == nullptr || output == nullptr)
+        if(min == nullptr || max == nullptr || step == nullptr || output == nullptr)
             return new Shape(nullptr, nullptr);
         auto x = new std::vector<T>();
         auto y = new std::vector<T>();
         T* i = new T();
-        for(*i = *min; *i <= *max; *i += *step){
-            input->setValue(i);
+        for(*i = *min; *i < *max; *i += *step){
+            if(input != nullptr)
+                input->setValue(i);
             y->push_back(*output->evaluate());
             x->push_back(*i);
         }
