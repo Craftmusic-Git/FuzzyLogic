@@ -17,7 +17,19 @@ set(HEADER_FILES
         operator/is/Is.h
         operator/is/IsTriangle.h
         operator/then/Then.h
-        operator/then/ThenMin.h operator/then/ThenMult.h operator/agg/Agg.h operator/agg/AggMax.h operator/agg/AggPlus.h core/Evaluator.h operator/not/NotMinus1.h operator/not/Not.h operator/MamdaniDefuzz.h operator/CogDefuzz.h core/NaryExpression.h core/UnaryShadowExpression.h)
+        operator/then/ThenMin.h
+        operator/then/ThenMult.h
+        operator/agg/Agg.h
+        operator/agg/AggMax.h
+        operator/agg/AggPlus.h
+        core/Evaluator.h
+        operator/not/NotMinus1.h
+        operator/not/Not.h
+        operator/MamdaniDefuzz.h
+        operator/CogDefuzz.h
+        core/NaryExpression.h
+        core/UnaryShadowExpression.h
+        core/BinaryShadowExpression.h)
 
 set(SOURCE_FILES operator/is/IsRectangle.h)
 

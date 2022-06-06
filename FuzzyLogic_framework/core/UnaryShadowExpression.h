@@ -14,7 +14,7 @@ namespace fuzzyLogic::core{
         // GET / SET
 
         UnaryExpression<T>* getTarget();
-        void setTarget(UnaryExpression<T> t);
+        void setTarget(UnaryExpression<T>* t);
 
     private :
         UnaryExpression<T>* target;
@@ -33,9 +33,11 @@ namespace fuzzyLogic::core{
     }
 
     template<typename T>
-    void UnaryShadowExpression<T>::setTarget(UnaryExpression<T> t) {
+    void UnaryShadowExpression<T>::setTarget(UnaryExpression<T> *t) {
         target = t;
     }
+
+
 }
 
 #endif //FUZZYLOGIC_UNARYSHADOWEXPRESSION_H
