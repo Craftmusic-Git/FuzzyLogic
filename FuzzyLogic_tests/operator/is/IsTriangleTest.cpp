@@ -29,7 +29,7 @@ protected:
 };
 
 TEST_F(IsTriangleTestSuite, nullptrTest){
-    EXPECT_EQ(sut->evaluate(nullptr),nullptr);
+    EXPECT_THROW( *sut->evaluate(nullptr), NullOperatorException);
 }
 
 TEST_F(IsTriangleTestSuite, SimpleValueTest){

@@ -2,6 +2,7 @@
 #define FUZZYLOGIC_ISTRIANGLE_H
 
 #include "operator/is/Is.h"
+#include "exceptions/NullOperatorException.h"
 
 namespace fuzzyLogic::core::op {
     template<typename T>
@@ -24,7 +25,7 @@ namespace fuzzyLogic::core::op {
     template<typename T>
     T *IsTriangle<T>::evaluate(Expression<T> *expr) const {
         if(expr == nullptr)
-            return nullptr;
+            throw NullOperatorException("null operator");
         T* eval = expr->evaluate();
 
         if(*eval < *min || *eval > *max)

@@ -31,9 +31,17 @@ set(HEADER_FILES
         core/UnaryShadowExpression.h
         core/BinaryShadowExpression.h
         core/ExpressionFactory.h
-        core/FuzzyFactory.h FuzzyLogic.h)
+        core/FuzzyFactory.h
+        FuzzyLogic.h
+        exceptions/NullParameterException.h
+        exceptions/InconsistentValueException.h
+        operator/is/IsTrapeze.h
+        operator/is/IsSigmoid.h
+        operator/is/IsLinear.h
+        operator/is/IsGeneralizedBell.h
+        operator/is/IsGaussian.h)
 
-set(SOURCE_FILES operator/is/IsRectangle.h)
+set(SOURCE_FILES operator/is/IsRectangle.h operator/is/IsSingleton.h)
 
 add_library(FuzzyLogicFramework STATIC ${SOURCE_FILES} ${HEADER_FILES})
 set_target_properties(FuzzyLogicFramework PROPERTIES LINKER_LANGUAGE CXX)
