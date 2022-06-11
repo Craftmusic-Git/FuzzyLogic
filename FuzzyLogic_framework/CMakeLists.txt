@@ -29,7 +29,9 @@ set(HEADER_FILES
         operator/CogDefuzz.h
         core/NaryExpression.h
         core/UnaryShadowExpression.h
-        core/BinaryShadowExpression.h)
+        core/BinaryShadowExpression.h
+        core/ExpressionFactory.h
+        core/FuzzyFactory.h)
 
 set(SOURCE_FILES operator/is/IsRectangle.h)
 
