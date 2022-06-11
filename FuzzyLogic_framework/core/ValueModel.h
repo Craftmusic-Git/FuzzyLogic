@@ -15,9 +15,13 @@ namespace fuzzyLogic::core {
 
     public:
         ValueModel() = default;
-        ValueModel(T value);
+        explicit ValueModel(T value);
+
+        virtual ~ValueModel() = default;
+
         T* evaluate() const override;
         void setValue(T* v);
+        void setValue(T v);
     };
 
     template<typename T>
@@ -33,6 +37,11 @@ namespace fuzzyLogic::core {
     template<typename T>
     ValueModel<T>::ValueModel(T value) : value(new T(value)){
 
+    }
+
+    template<typename T>
+    void ValueModel<T>::setValue(T v) {
+        setValue(&v);
     }
 }
 

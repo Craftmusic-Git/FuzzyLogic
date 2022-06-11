@@ -7,6 +7,8 @@ namespace fuzzyLogic::core {
     template <typename T>
     class BinaryShadowExpression : public BinaryExpression<T>{
     public:
+        BinaryShadowExpression() = default;
+        explicit BinaryShadowExpression(BinaryExpression<T>* target);
         virtual ~BinaryShadowExpression() = default;
         T* evaluate(Expression<T>* l, Expression<T>* r) const override;
 
@@ -33,6 +35,11 @@ namespace fuzzyLogic::core {
     template<typename T>
     void BinaryShadowExpression<T>::setTarget(BinaryExpression<T> *t) {
         target = t;
+    }
+
+    template<typename T>
+    BinaryShadowExpression<T>::BinaryShadowExpression(BinaryExpression<T> *target) : target(target){
+
     }
 }
 

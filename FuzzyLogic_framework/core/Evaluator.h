@@ -11,6 +11,8 @@ namespace fuzzyLogic::core {
     template<typename T>
     class Evaluator {
     public:
+
+        virtual ~Evaluator() = default;
         typedef std::pair<std::vector<T>*, std::vector<T>*> Shape;
         static Shape* buildShape(const T* min, const T* max, const T* step, ValueModel<T>* in, Expression<T>* out);
 

@@ -17,6 +17,7 @@ namespace fuzzyLogic::core {
 
     public:
         // Implementations :
+        virtual ~BinaryExpressionModel() = default;
         T* evaluate() const override;
         T* evaluate(Expression<T>* l, Expression<T>* r) const override;
 

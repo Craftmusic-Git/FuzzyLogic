@@ -14,6 +14,8 @@ namespace fuzzyLogic::core {
         T* evaluate() const override;
         T* evaluate(Expression<T>* o) const override;
 
+        virtual ~UnaryExpressionModel() = default;
+
         // SETTER/GETTER
         void setOperand(Expression<T>* o);
         Expression<T>* getOperand() const;

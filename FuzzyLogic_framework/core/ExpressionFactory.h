@@ -1,7 +1,7 @@
 #ifndef FUZZYLOGIC_EXPRESSIONFACTORY_H
 #define FUZZYLOGIC_EXPRESSIONFACTORY_H
 
-#include <list>
+#include <set>
 
 #include "UnaryExpressionModel.h"
 #include "BinaryExpressionModel.h"
@@ -17,8 +17,7 @@ namespace fuzzyLogic {
 
 
         public:
-            ExpressionFactory();
-            virtual ~ExpressionFactory() = default;
+            ~ExpressionFactory();
 
             UnaryExpressionModel<T>* newUnary(UnaryExpression<T>* op = nullptr, Expression<T>* operand = nullptr);
             BinaryExpressionModel<T>* newBinary(BinaryExpression<T>* op = nullptr, Expression<T>* left = nullptr, Expression<T>* right = nullptr);
@@ -26,7 +25,7 @@ namespace fuzzyLogic {
 
         protected:
             void hold(Expression<T>* exp);
-            std::vector<Expression<T>*>* memory;
+            std::set<Expression<T>*> memory;
         };
 
         template<typename T>
@@ -51,7 +50,7 @@ namespace fuzzyLogic {
 
         template<typename T>
         void ExpressionFactory<T>::hold(Expression<T> *exp) {
-            memory->push_back(exp);
+            memory.insert(exp);
         }
 
         template<typename T>
@@ -62,8 +61,9 @@ namespace fuzzyLogic {
         }
 
         template<typename T>
-        ExpressionFactory<T>::ExpressionFactory(){
-            memory = new std::vector<Expression<T>*>();
+        ExpressionFactory<T>::~ExpressionFactory() {
+            for(typename std::set<Expression<T>*>::iterator it = memory.begin(); it != memory.end(); it++)
+                delete *it;
         }
 
     } // fuzzyLogic

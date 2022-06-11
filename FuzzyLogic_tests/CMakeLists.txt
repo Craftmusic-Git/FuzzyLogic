@@ -23,6 +23,6 @@ add_executable(Google_Tests_run
         operator/is/IsRectangleTest.cpp
         operator/CogDefuzzTest.cpp
         core/UnaryShadowExpressionTest.cpp
-        core/BinaryShadowExpressionTest.cpp)
+        core/BinaryShadowExpressionTest.cpp core/FuzzyFactoryTest.cpp)
 target_link_libraries(Google_Tests_run FuzzyLogicFramework)
 target_link_libraries(Google_Tests_run gtest gtest_main)

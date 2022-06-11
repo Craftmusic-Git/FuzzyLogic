@@ -31,7 +31,7 @@ set(HEADER_FILES
         core/UnaryShadowExpression.h
         core/BinaryShadowExpression.h
         core/ExpressionFactory.h
-        core/FuzzyFactory.h)
+        core/FuzzyFactory.h FuzzyLogic.h)
 
 set(SOURCE_FILES operator/is/IsRectangle.h)
 
