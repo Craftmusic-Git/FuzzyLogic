@@ -4,6 +4,7 @@
 #include "operator/agg/Agg.h"
 
 namespace fuzzyLogic::core::op {
+
     template<typename T>
     class AggMax : public Agg<T>{
     public:
@@ -19,6 +20,7 @@ namespace fuzzyLogic::core::op {
         T* rEval = r->evaluate();
         return (*lEval < *rEval) ? rEval : lEval;
     }
+
 }
 
 #endif //FUZZYLOGIC_AGGMAX_H
