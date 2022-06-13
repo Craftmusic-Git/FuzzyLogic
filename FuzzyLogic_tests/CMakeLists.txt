@@ -23,6 +23,6 @@ add_executable(Google_Tests_run
         operator/is/IsRectangleTest.cpp
         operator/CogDefuzzTest.cpp
         core/UnaryShadowExpressionTest.cpp
-        core/BinaryShadowExpressionTest.cpp core/FuzzyFactoryTest.cpp operator/is/IsTrapezeTest.cpp operator/is/IsSingletonTest.cpp operator/is/IsSigmoidTest.cpp operator/is/IsLinearTest.cpp operator/is/IsGeneralizedBellTest.cpp operator/is/IsGaussianTest.cpp)
+        core/BinaryShadowExpressionTest.cpp core/FuzzyFactoryTest.cpp operator/is/IsTrapezeTest.cpp operator/is/IsSingletonTest.cpp operator/is/IsSigmoidTest.cpp operator/is/IsLinearTest.cpp operator/is/IsGeneralizedBellTest.cpp operator/is/IsGaussianTest.cpp operator/is/IsSigmoidLeft.cpp operator/is/IsSigmoidLeftTest.cpp operator/is/IsTrapezeRightTest.cpp operator/CosDefuzzTest.cpp operator/LomDefuzzTest.cpp operator/FomDefuzzTest.cpp)
 target_link_libraries(Google_Tests_run FuzzyLogicFramework)
 target_link_libraries(Google_Tests_run gtest gtest_main)

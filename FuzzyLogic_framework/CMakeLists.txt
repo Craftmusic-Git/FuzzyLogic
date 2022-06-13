@@ -39,7 +39,7 @@ set(HEADER_FILES
         operator/is/IsSigmoid.h
         operator/is/IsLinear.h
         operator/is/IsGeneralizedBell.h
-        operator/is/IsGaussian.h)
+        operator/is/IsGaussian.h operator/is/IsSigmoidLeft.h operator/is/IsTrapezeLeft.h operator/is/IsTrapezeRight.h operator/CosDefuzz.h operator/LomDefuzz.h operator/FomDefuzz.h operator/then/SugenoThen.h operator/SugenoDefuzz.h operator/SugenoConclusion.h)
 
 set(SOURCE_FILES operator/is/IsRectangle.h operator/is/IsSingleton.h)
 
